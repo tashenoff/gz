@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gas Metal Service — продажа металлопроката в Казахстане</title>
+  <meta name="description" content="ТОО «Gas Metal Service» — поставщик металлопроката из России, Китая, Европы и США в Казахстан." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            steel: { 900: '#050505', 800: '#111111' },
+            accent: { DEFAULT: '#c9a227', dark: '#a6841c' },
+            copper: { DEFAULT: '#b87333', dark: '#9a5c28' }
+          },
+          fontFamily: { sans: ['Manrope', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .reveal { opacity: 0; visibility: hidden; }
+    .wa-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      color: #fff; font-weight: 700; text-decoration: none;
+      background: linear-gradient(180deg, #e0a05a 0%, #c07a38 38%, #8f4e22 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.35), inset 0 -1px 0 rgba(0,0,0,.25), 0 8px 20px rgba(143,78,34,.35);
+      transition: filter .25s ease, transform .25s ease, box-shadow .25s ease;
+    }
+    .wa-btn:hover {
+      filter: brightness(1.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.45), inset 0 -1px 0 rgba(0,0,0,.28), 0 10px 24px rgba(143,78,34,.45);
+    }
+    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-dots {
+      position: absolute; inset: 0; pointer-events: none; z-index: 1;
+      background-image: radial-gradient(circle, rgba(0,0,0,.95) 1.2px, transparent 1.35px);
+      background-size: 3px 3px;
+    }
+    .hero-mask { position: absolute; inset: 0; z-index: 2;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.86) 45%, rgba(0,0,0,.96) 100%),
+        radial-gradient(ellipse at 70% 20%, rgba(201,162,39,.12), transparent 55%); }
+    .grain { pointer-events: none; position: fixed; inset: 0; z-index: 40; opacity: .045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .lightbox { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,.88); backdrop-filter: blur(6px); opacity: 0; visibility: hidden;
+      transition: opacity .35s ease, visibility .35s ease; cursor: zoom-out; padding: 1rem; }
+    .lightbox.open { opacity: 1; visibility: visible; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.6); transform: scale(.92); transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
+    .lightbox.open img { transform: scale(1); }
+    .thanks-card { cursor: zoom-in; }
+  </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased">
+  <div class="grain"></div>
+  <header class="sticky top-0 z-50 bg-steel-900/95 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <a href="#top" class="flex items-center">
+          <img src="logo.png" alt="Gas Metal Service" class="h-10 lg:h-12 w-auto object-contain" />
+        </a>
+        <nav class="hidden lg:flex items-center gap-7 text-sm text-slate-300">
+          <a href="#about" class="hover:text-white">О нас</a>
+          <a href="#products" class="hover:text-white">Продукция</a>
+          <a href="#advantages" class="hover:text-white">Преимущества</a>
+          <a href="#services" class="hover:text-white">Услуги</a>
+          <a href="#thanks" class="hover:text-white">Благодарственные письма</a>
+          <a href="#contacts" class="hover:text-white">Контакты</a>
+        </nav>
+        <a href="https://wa.me/77717070100" target="_blank" rel="noopener"
+           class="magnetic wa-btn text-sm px-4 py-2 rounded-lg"><i data-lucide="message-circle" class="w-4 h-4"></i>WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="top" class="relative bg-steel-900 text-white overflow-hidden min-h-[88vh] flex items-center">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="bg.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-dots"></div>
+    <div class="hero-mask"></div>
+    <div class="absolute inset-0 opacity-40 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/30 via-transparent to-transparent" data-parallax></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 relative z-10">
+      <p class="hero-el text-accent font-semibold tracking-wide uppercase text-sm mb-4">ТОО «Gas Metal Service»</p>
+      <h1 class="hero-el text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight max-w-3xl">Продажа металлопроката в Казахстане</h1>
+      <p class="hero-el mt-6 text-lg text-slate-300 max-w-2xl">Поставки металлопроката из России, Китая, Европы и США. Стальной сортамент в любых объёмах — от нескольких тонн до крупных корпоративных заказов.</p>
+      <div class="hero-el mt-10 flex flex-wrap gap-4">
+        <a href="https://wa.me/77717070100?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%BD%D0%B0%20%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D0%BE%D0%BF%D1%80%D0%BE%D0%BA%D0%B0%D1%82." target="_blank" rel="noopener" class="magnetic wa-btn px-6 py-3.5 rounded-xl text-base"><i data-lucide="message-circle" class="w-5 h-5"></i>Написать в WhatsApp</a>
+        <a href="#products" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-white/20 hover:border-white/40 font-semibold transition">Смотреть продукцию</a>
+      </div>
+      <div class="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-6 border-t border-white/10 pt-10">
+        <div class="hero-stat"><div class="flex items-center gap-2 text-accent font-bold text-sm"><i data-lucide="globe" class="w-4 h-4"></i>Поставки</div><div class="text-slate-300 text-sm mt-1">Россия, Китай, Европа, США</div></div>
+        <div class="hero-stat"><div class="flex items-center gap-2 text-accent font-bold text-sm"><i data-lucide="badge-check" class="w-4 h-4"></i>ISO 9000:2008</div><div class="text-slate-300 text-sm mt-1">Стандарты менеджмента и качества</div></div>
+        <div class="hero-stat"><div class="flex items-center gap-2 text-accent font-bold text-sm"><i data-lucide="truck" class="w-4 h-4"></i>Логистика</div><div class="text-slate-300 text-sm mt-1">Напрямую с заводов-изготовителей</div></div>
+        <div class="hero-stat"><div class="flex items-center gap-2 text-accent font-bold text-sm"><i data-lucide="credit-card" class="w-4 h-4"></i>Оплата</div><div class="text-slate-300 text-sm mt-1">Гибкие скидки и отсрочка</div></div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="reveal text-accent-dark font-semibold uppercase tracking-wide text-sm">О нас</p>
+      <h2 class="reveal text-3xl lg:text-4xl font-extrabold text-steel-900 mt-2 max-w-3xl">Цель компании — наращивать поставки металлопроката в Казахстан</h2>
+      <p class="reveal mt-6 text-lg text-slate-600 max-w-3xl">В любых объёмах мы можем обеспечить вас стальным сортаментом. Мы — независимая компания, свободная поставлять и закупать металлопрокат по всему миру.</p>
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="stagger-card p-6 rounded-2xl bg-slate-50 border border-slate-100"><div class="flex items-center gap-2"><i data-lucide="wallet" class="w-5 h-5 text-accent-dark"></i><h3 class="font-bold text-steel-900">Оплата</h3></div><p class="mt-2 text-sm text-slate-600">Комфортные способы оплаты, гибкие системы скидок и бонусов.</p></div>
+        <div class="stagger-card p-6 rounded-2xl bg-slate-50 border border-slate-100"><div class="flex items-center gap-2"><i data-lucide="users" class="w-5 h-5 text-accent-dark"></i><h3 class="font-bold text-steel-900">Команда</h3></div><p class="mt-2 text-sm text-slate-600">Расширяем штат сотрудников, которые решают вопросы клиентов индивидуально.</p></div>
+        <div class="stagger-card p-6 rounded-2xl bg-slate-50 border border-slate-100"><div class="flex items-center gap-2"><i data-lucide="truck" class="w-5 h-5 text-accent-dark"></i><h3 class="font-bold text-steel-900">Быстрая доставка</h3></div><p class="mt-2 text-sm text-slate-600">Металлопрокат напрямую с заводов. Расширяем географию поставок каждый день.</p></div>
+        <div class="stagger-card p-6 rounded-2xl bg-slate-50 border border-slate-100"><div class="flex items-center gap-2"><i data-lucide="calendar-clock" class="w-5 h-5 text-accent-dark"></i><h3 class="font-bold text-steel-900">Отсрочка</h3></div><p class="mt-2 text-sm text-slate-600">Возможность разбивки платежей на удобные для вас части.</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="products" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="reveal text-accent-dark font-semibold uppercase tracking-wide text-sm">Наша продукция</p>
+      <h2 class="reveal text-3xl lg:text-4xl font-extrabold text-steel-900 mt-2">Стальной сортамент</h2>
+      <p class="reveal mt-4 text-slate-600 max-w-2xl">Полный спектр металлопроката для строительства, производства и промышленности.</p>
+      <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="stagger-card bg-white rounded-2xl p-7 border border-slate-100 shadow-sm"><div class="flex items-center gap-2 mb-1"><i data-lucide="shield" class="w-5 h-5 text-accent-dark"></i><h3 class="text-xl font-bold text-steel-900">Нержавеющая сталь</h3></div><ul class="mt-4 space-y-2 text-slate-600 text-sm"><li>Круг, квадрат, шестигранник</li><li>Полоса, уголок</li><li>Трубы</li><li>Лист</li><li>Метизы</li><li>Детали трубопроводов</li></ul></article>
+        <article class="stagger-card bg-white rounded-2xl p-7 border border-slate-100 shadow-sm"><div class="flex items-center gap-2 mb-1"><i data-lucide="layers" class="w-5 h-5 text-accent-dark"></i><h3 class="text-xl font-bold text-steel-900">Сортовой прокат</h3></div><ul class="mt-4 space-y-2 text-slate-600 text-sm"><li>Арматура, катанка</li><li>Балка, швеллер</li><li>Уголок</li><li>Круг</li><li>Полоса, квадрат</li><li>Оцинкованный прокат</li></ul></article>
+        <article class="stagger-card bg-white rounded-2xl p-7 border border-slate-100 shadow-sm"><div class="flex items-center gap-2 mb-1"><i data-lucide="layout-grid" class="w-5 h-5 text-accent-dark"></i><h3 class="text-xl font-bold text-steel-900">Листовой прокат</h3></div><ul class="mt-4 space-y-2 text-slate-600 text-sm"><li>Лист г/к</li><li>Лист х/к</li><li>Лист оцинкованный</li><li>Лист рифлёный</li><li>Лист нержавеющий</li><li>Профнастил</li><li>Просечно-вытяжной лист (ПВЛ)</li><li>Рулонная сталь</li></ul></article>
+        <article class="stagger-card bg-white rounded-2xl p-7 border border-slate-100 shadow-sm"><div class="flex items-center gap-2 mb-1"><i data-lucide="cylinder" class="w-5 h-5 text-accent-dark"></i><h3 class="text-xl font-bold text-steel-900">Трубы</h3></div><ul class="mt-4 space-y-2 text-slate-600 text-sm"><li>Трубы г/к</li><li>Трубы х/к</li><li>ВГП, ЭСВ трубы</li><li>ЭСВ низколегированные</li><li>Трубы оцинкованные</li></ul></article>
+        <article class="stagger-card bg-white rounded-2xl p-7 border border-slate-100 shadow-sm"><div class="flex items-center gap-2 mb-1"><i data-lucide="wrench" class="w-5 h-5 text-accent-dark"></i><h3 class="text-xl font-bold text-steel-900">Метизы</h3></div><ul class="mt-4 space-y-2 text-slate-600 text-sm"><li>Калибровка, серебрянка</li><li>Крепёж, гвозди, болты, цепи</li><li>Проволока, канаты</li><li>Сетка, лента</li><li>Электроды</li></ul></article>
+        <article class="stagger-card bg-white rounded-2xl p-7 border border-slate-100 shadow-sm"><div class="flex items-center gap-2 mb-1"><i data-lucide="box" class="w-5 h-5 text-accent-dark"></i><h3 class="text-xl font-bold text-steel-900">Фасонные изделия</h3></div><ul class="mt-4 space-y-2 text-slate-600 text-sm"><li>Балка двутавровая</li><li>Швеллер</li><li>Швеллер гнутый</li><li>Уголок</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="advantages" class="py-20 bg-steel-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="reveal text-accent font-semibold uppercase tracking-wide text-sm">Наши преимущества</p>
+      <h2 class="reveal text-3xl lg:text-4xl font-extrabold mt-2 max-w-3xl">Ориентируемся на запрос клиента</h2>
+      <p class="reveal mt-4 text-slate-300 max-w-3xl">Будь то физическое лицо, закупающее несколько тонн металла, или крупная корпорация — мы гарантируем индивидуальный подход.</p>
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="stagger-card p-6 rounded-2xl bg-white/5 border border-white/10"><div class="flex items-center gap-2 mb-1"><i data-lucide="globe" class="w-5 h-5 text-accent"></i><h3 class="font-bold">Независимость</h3></div><p class="mt-2 text-sm text-slate-300">Свободно поставляем и закупаем металлопрокат по всему миру.</p></div>
+        <div class="stagger-card p-6 rounded-2xl bg-white/5 border border-white/10"><div class="flex items-center gap-2 mb-1"><i data-lucide="brain" class="w-5 h-5 text-accent"></i><h3 class="font-bold">Знание рынка</h3></div><p class="mt-2 text-sm text-slate-300">Глубокое знание рынка металлопроката.</p></div>
+        <div class="stagger-card p-6 rounded-2xl bg-white/5 border border-white/10"><div class="flex items-center gap-2 mb-1"><i data-lucide="users" class="w-5 h-5 text-accent"></i><h3 class="font-bold">Опытный коллектив</h3></div><p class="mt-2 text-sm text-slate-300">Команда, которая решает задачи индивидуально.</p></div>
+        <div class="stagger-card p-6 rounded-2xl bg-white/5 border border-white/10"><div class="flex items-center gap-2 mb-1"><i data-lucide="tag" class="w-5 h-5 text-accent"></i><h3 class="font-bold">Конкурентные цены</h3></div><p class="mt-2 text-sm text-slate-300">Выгодные условия закупки и гибкая система скидок.</p></div>
+        <div class="stagger-card p-6 rounded-2xl bg-white/5 border border-white/10"><div class="flex items-center gap-2 mb-1"><i data-lucide="route" class="w-5 h-5 text-accent"></i><h3 class="font-bold">Эффективная логистика</h3></div><p class="mt-2 text-sm text-slate-300">Доставка напрямую с заводов-изготовителей.</p></div>
+        <div class="stagger-card p-6 rounded-2xl bg-white/5 border border-white/10"><div class="flex items-center gap-2 mb-1"><i data-lucide="badge-check" class="w-5 h-5 text-accent"></i><h3 class="font-bold">Нормативные требования</h3></div><p class="mt-2 text-sm text-slate-300">Соответствие ISO 9000:2008 и мировым стандартам качества.</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="services" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="reveal text-accent-dark font-semibold uppercase tracking-wide text-sm">Дополнительные услуги</p>
+      <h2 class="reveal text-3xl lg:text-4xl font-extrabold text-steel-900 mt-2">Обработка металла</h2>
+      <p class="reveal mt-4 text-slate-600 max-w-2xl">Наша компания оказывает весь спектр услуг по обработке металла.</p>
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div class="stagger-card rounded-xl border border-slate-200 px-4 py-5 text-center font-semibold text-steel-900 flex flex-col items-center gap-2"><i data-lucide="paintbrush" class="w-5 h-5 text-accent-dark"></i>Покраска металла</div>
+        <div class="stagger-card rounded-xl border border-slate-200 px-4 py-5 text-center font-semibold text-steel-900 flex flex-col items-center gap-2"><i data-lucide="grid-3x3" class="w-5 h-5 text-accent-dark"></i>Перфорация</div>
+        <div class="stagger-card rounded-xl border border-slate-200 px-4 py-5 text-center font-semibold text-steel-900 flex flex-col items-center gap-2"><i data-lucide="rotate-cw" class="w-5 h-5 text-accent-dark"></i>Вальцовка металла</div>
+        <div class="stagger-card rounded-xl border border-slate-200 px-4 py-5 text-center font-semibold text-steel-900 flex flex-col items-center gap-2"><i data-lucide="scissors" class="w-5 h-5 text-accent-dark"></i>Резка металла</div>
+        <div class="stagger-card rounded-xl border border-slate-200 px-4 py-5 text-center font-semibold text-steel-900 flex flex-col items-center gap-2"><i data-lucide="flame" class="w-5 h-5 text-accent-dark"></i>Сварка металла</div>
+        <div class="stagger-card rounded-xl border border-slate-200 px-4 py-5 text-center font-semibold text-steel-900 flex flex-col items-center gap-2"><i data-lucide="droplets" class="w-5 h-5 text-accent-dark"></i>Покрытие металла</div>
+        <div class="stagger-card rounded-xl border border-slate-200 px-4 py-5 text-center font-semibold text-steel-900 flex flex-col items-center gap-2"><i data-lucide="sparkles" class="w-5 h-5 text-accent-dark"></i>Шлифовка металла</div>
+        <div class="stagger-card rounded-xl border border-slate-200 px-4 py-5 text-center font-semibold text-steel-900 flex flex-col items-center gap-2"><i data-lucide="move-horizontal" class="w-5 h-5 text-accent-dark"></i>Гибка металла</div>
+        <div class="stagger-card rounded-xl border border-slate-200 px-4 py-5 text-center font-semibold text-steel-900 flex flex-col items-center gap-2"><i data-lucide="gem" class="w-5 h-5 text-accent-dark"></i>Полировка металла</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Благодарственные письма -->
+  <section id="thanks" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="reveal text-accent-dark font-semibold uppercase tracking-wide text-sm flex items-center gap-2">
+        <i data-lucide="award" class="w-4 h-4"></i>Документы
+      </p>
+      <h2 class="reveal text-3xl lg:text-4xl font-extrabold text-steel-900 mt-2">Благодарственные письма</h2>
+      <p class="reveal mt-4 text-slate-600 max-w-2xl">
+        Нас ценят за надёжность, оперативность и индивидуальный подход. Представляем благодарственные письма от наших партнёров.
+      </p>
+      <div class="mt-10 grid grid-cols-3 sm:grid-cols-5 gap-4">
+        <a href="1.png" class="thanks-card stagger-card block hover:shadow-lg transition" data-lightbox>
+          <img src="1.png" alt="Благодарственное письмо 1" class="w-full h-48 sm:h-56 object-contain" loading="lazy" />
+        </a>
+        <a href="2.png" class="thanks-card stagger-card block hover:shadow-lg transition" data-lightbox>
+          <img src="2.png" alt="Благодарственное письмо 2" class="w-full h-48 sm:h-56 object-contain" loading="lazy" />
+        </a>
+        <a href="3.png" class="thanks-card stagger-card block hover:shadow-lg transition" data-lightbox>
+          <img src="3.png" alt="Благодарственное письмо 3" class="w-full h-48 sm:h-56 object-contain" loading="lazy" />
+        </a>
+        <a href="4.png" class="thanks-card stagger-card block hover:shadow-lg transition" data-lightbox>
+          <img src="4.png" alt="Благодарственное письмо 4" class="w-full h-48 sm:h-56 object-contain" loading="lazy" />
+        </a>
+        <a href="5.png" class="thanks-card stagger-card block hover:shadow-lg transition" data-lightbox>
+          <img src="5.png" alt="Благодарственное письмо 5" class="w-full h-48 sm:h-56 object-contain" loading="lazy" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="relative overflow-hidden py-16 bg-steel-900">
+    <div class="absolute inset-0 z-0">
+      <img src="bg-cta.jpg" alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/80"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+      <div class="reveal">
+        <h2 class="text-3xl font-extrabold text-white">Нужна поставка металлопроката?</h2>
+        <p class="mt-2 text-white/70 max-w-xl">Напишите нам в WhatsApp — менеджеры подберут сортамент, рассчитают стоимость и сроки доставки.</p>
+      </div>
+      <a href="https://wa.me/77717070100?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BF%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D0%BE%D0%BF%D1%80%D0%BE%D0%BA%D0%B0%D1%82%D0%B0." target="_blank" rel="noopener" class="magnetic wa-btn px-7 py-4 rounded-xl shrink-0"><i data-lucide="message-circle" class="w-5 h-5"></i>Открыть WhatsApp</a>
+    </div>
+  </section>
+
+
+  <section id="contacts" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="reveal text-accent-dark font-semibold uppercase tracking-wide text-sm">Контакты</p>
+      <h2 class="reveal text-3xl lg:text-4xl font-extrabold text-steel-900 mt-2">Свяжитесь с нами</h2>
+      <p class="reveal mt-4 text-slate-600">Наши менеджеры будут рады помочь вам.</p>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <a href="tel:+77717070100" class="stagger-card bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-md transition"><div class="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500"><i data-lucide="phone" class="w-4 h-4 text-accent-dark"></i>Телефон</div><div class="mt-2 font-bold text-steel-900 text-lg">+7 771 70 70 100</div></a>
+        <a href="tel:+77757712070" class="stagger-card bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-md transition"><div class="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500"><i data-lucide="phone" class="w-4 h-4 text-accent-dark"></i>Телефон</div><div class="mt-2 font-bold text-steel-900 text-lg">+7 (775) 771 20 70</div></a>
+        <a href="mailto:gasmetservice@gmail.com" class="stagger-card bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-md transition"><div class="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500"><i data-lucide="mail" class="w-4 h-4 text-accent-dark"></i>Электронная почта</div><div class="mt-2 font-bold text-steel-900 text-lg break-all">gasmetservice@gmail.com</div></a>
+      </div>
+      <p class="mt-6 text-sm text-slate-500">Дополнительный номер: <a class="font-semibold text-steel-900" href="tel:+77717070111">+7 (771) 70 70 111</a></p>
+    </div>
+  </section>
+  <div class="lightbox" id="lightbox"><img src="" alt="Благодарственное письмо" /></div>
+  <footer class="bg-steel-900 text-slate-400 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between gap-4 text-sm">
+      <p>© ТОО «Gas Metal Service». Все права защищены</p>
+      <a href="https://wa.me/77717070100" target="_blank" rel="noopener" class="wa-btn px-4 py-2 rounded-lg text-sm font-semibold"><i data-lucide="message-circle" class="w-4 h-4"></i>WhatsApp</a>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script>
+    lucide.createIcons();
+    gsap.registerPlugin(ScrollTrigger);
+    const lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+
+    gsap.set('.hero-el', { y: 40, opacity: 0 });
+    gsap.set('.hero-stat', { y: 24, opacity: 0 });
+    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    heroTl.to('.hero-el', { y: 0, opacity: 1, duration: 0.9, stagger: 0.12 })
+          .to('.hero-stat', { y: 0, opacity: 1, duration: 0.7, stagger: 0.08 }, '-=0.4');
+
+    gsap.utils.toArray('[data-parallax]').forEach((el) => {
+      gsap.to(el, { yPercent: 18, ease: 'none', scrollTrigger: { trigger: el.parentElement, start: 'top top', end: 'bottom top', scrub: true } });
+    });
+
+    gsap.utils.toArray('.reveal').forEach((el) => {
+      gsap.fromTo(el, { y: 36, opacity: 0, visibility: 'hidden' }, {
+        y: 0, opacity: 1, visibility: 'visible', duration: 0.85, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 86%' }
+      });
+    });
+
+    document.querySelectorAll('.stagger-card').forEach((card) => {
+      const parent = card.parentElement;
+      if (parent.dataset.staggerBound) return;
+      parent.dataset.staggerBound = '1';
+      const cards = parent.querySelectorAll('.stagger-card');
+      gsap.set(cards, { y: 40, opacity: 0 });
+      gsap.to(cards, {
+        y: 0, opacity: 1, duration: 0.75, stagger: 0.08, ease: 'power3.out',
+        scrollTrigger: { trigger: parent, start: 'top 82%' }
+      });
+    });
+
+    document.querySelectorAll('.magnetic').forEach((btn) => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        gsap.to(btn, { x: (e.clientX - r.left - r.width / 2) * 0.25, y: (e.clientY - r.top - r.height / 2) * 0.25, duration: 0.3 });
+      });
+      btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'power3.out' }));
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        lenis.scrollTo(target, { offset: -80 });
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    document.querySelectorAll('[data-lightbox]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const src = link.getAttribute('href');
+        if (!src) return;
+        lightboxImg.setAttribute('src', src);
+        lightboxImg.setAttribute('alt', link.querySelector('img')?.getAttribute('alt') || '');
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>
